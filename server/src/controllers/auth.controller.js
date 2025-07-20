@@ -2,7 +2,7 @@ const { sendOtp } = require("../services/auth/auth.service");
 /**
  * @route POST /api/auth/send-otp
  */
-async function sendOtpController(req, res) {
+const sendOtpController = async (req, res) => {
   try {
     const { email } = req.body;
 
@@ -13,10 +13,12 @@ async function sendOtpController(req, res) {
     await sendOtp(email);
 
     return res.status(200).json({ message: "OTP sent successfully" });
-  } catch {
-    return res.status(500).json({ message: "Failed to send OTP" });
+  } catch (err) {
+    return res
+      .status(500)
+      .json({ message: "Failed to send OTP", error: err.message });
   }
-}
+};
 
 module.exports = {
   sendOtpController,

@@ -14,7 +14,7 @@ const otpSchema = new mongoose.Schema(
       type: Date,
       required: true,
     },
-    used: {
+    isUsed: {
       type: Boolean,
       default: false,
     },
