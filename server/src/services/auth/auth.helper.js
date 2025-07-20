@@ -14,7 +14,7 @@ function getOtpPayload(identifier) {
 
 async function sendOtpMail(toEmail, otp) {
   const mailOptions = {
-    from: '"Booksy Auth" <no-reply@booksy.com>', // sender name + email
+    from: "\"Booksy Auth\" <no-reply@booksy.com>", // sender name + email
     to: toEmail, // recipient
     subject: "Your OTP Code",
     text: `Your OTP is ${otp}. It will expire in 5 minutes.`,

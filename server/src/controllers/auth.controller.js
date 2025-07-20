@@ -13,7 +13,7 @@ async function sendOtpController(req, res) {
     await sendOtp(email);
 
     return res.status(200).json({ message: "OTP sent successfully" });
-  } catch (err) {
+  } catch {
     return res.status(500).json({ message: "Failed to send OTP" });
   }
 }

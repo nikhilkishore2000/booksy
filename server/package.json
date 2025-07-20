@@ -4,7 +4,9 @@
   "main": "index.js",
   "scripts": {
     "start": "node src/server.js",
-    "dev": "nodemon"
+    "dev": "nodemon",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
   },
   "keywords": [],
   "author": "",
@@ -18,7 +20,9 @@
     "nodemailer": "^7.0.5"
   },
   "devDependencies": {
+    "@eslint/js": "^9.31.0",
     "eslint": "^9.31.0",
+    "globals": "^16.3.0",
     "nodemon": "^3.1.10"
   }
 }
