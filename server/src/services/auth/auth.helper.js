@@ -1,20 +1,8 @@
-const { getOtpExpireAtAndDeleteAt, generateOtp } = require("../../utils/utils");
 const transporter = require("../../config/nodemailer.config");
-
-function getOtpPayload(identifier) {
-  const otp = generateOtp();
-  const { expiresAt, deleteAt } = getOtpExpireAtAndDeleteAt();
-  return {
-    otp,
-    identifier,
-    expiresAt,
-    deleteAt,
-  };
-}
 
 async function sendOtpMail(toEmail, otp) {
   const mailOptions = {
-    from: "\"Booksy Auth\" <no-reply@booksy.com>", // sender name + email
+    from: "'Booksy Auth' <no-reply@booksy.com>", // sender name + email
     to: toEmail, // recipient
     subject: "Your OTP Code",
     text: `Your OTP is ${otp}. It will expire in 5 minutes.`,
@@ -25,6 +13,5 @@ async function sendOtpMail(toEmail, otp) {
 }
 
 module.exports = {
-  getOtpPayload,
   sendOtpMail,
 };
