@@ -121,6 +121,7 @@
             <p>+91-9048923453</p>
           </div>
 
+          <% if (session.user.username !== '') { %>
           <div class="col-md-2 mb-4">
             <h6>Account</h6>
             <a href="#">My Account</a><br />
@@ -128,6 +129,7 @@
             <a href="#">Wishlist</a><br />
             <a href="#">Shop</a>
           </div>
+          <% } %>
 
           <div class="col-md-2 mb-4">
             <h6>Quick Link</h6>
