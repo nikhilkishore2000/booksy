@@ -1,8 +1,11 @@
 const express = require("express");
 const dotenv = require("dotenv");
-dotenv.config();
 const connectDB = require("./config/db.config");
 const authRoutes = require("./routes/auth.routes");
+const path = require("path");
+
+//env load
+dotenv.config();
 
 const app = express();
 
@@ -11,10 +14,16 @@ connectDB();
 
 app.use(express.json());
 
+app.set("view engine", "ejs");
+
+app.set("views", path.join(__dirname, "views"));
+
+app.use(express.static(path.join(__dirname, "public")));
+
 app.use("/api/auth", authRoutes);
 
 app.get("/", (req, res) => {
-  res.send("API running...");
+  res.render("signup", { title: "Welcome to My App" });
 });
 
 const PORT = process.env.PORT || 5000;

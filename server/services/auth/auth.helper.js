@@ -1,6 +1,6 @@
 const transporter = require("../../config/nodemailer.config");
 
-async function sendOtpMail(toEmail, otp) {
+const sendOtpMail = async (toEmail, otp) => {
   const mailOptions = {
     from: "'Booksy Auth' <no-reply@booksy.com>", // sender name + email
     to: toEmail, // recipient
@@ -10,7 +10,7 @@ async function sendOtpMail(toEmail, otp) {
   };
 
   await transporter.sendMail(mailOptions);
-}
+};
 
 module.exports = {
   sendOtpMail,
