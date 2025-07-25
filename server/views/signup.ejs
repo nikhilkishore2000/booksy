@@ -13,8 +13,28 @@
       rel="stylesheet"
     />
     <link href="/css/app.css" rel="stylesheet" type="text/css" />
+    <!-- Toastify CSS -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+    />
+
+    <script type="module">
+      import { signup } from "/js/main/auth.js";
+      document.addEventListener("DOMContentLoaded", () => {
+        const form = document.getElementById("signupForm");
+        if (form) form.addEventListener("submit", signup);
+      });
+    </script>
   </head>
   <body>
+    <!-- Toastify JS -->
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/toastify-js"
+    ></script>
+
     <!-- Promo Bar -->
     <div class="promo-bar">
       Special Sale on World Book Day - Upto 70% on Selected Products
@@ -53,31 +73,41 @@
           <div class="form-wrapper">
             <h3>Create an account</h3>
             <p class="mb-4">Enter your details below</p>
-            <form>
+            <form id="signupForm">
               <input
                 type="text"
                 class="form-control mb-3"
                 placeholder="Username"
+                name="username"
+                required
               />
               <input
                 type="text"
                 class="form-control mb-3"
                 placeholder="Phone"
+                name="phone"
+                required
               />
               <input
                 type="email"
                 class="form-control mb-3"
                 placeholder="Email"
+                name="email"
+                required
               />
               <input
                 type="password"
                 class="form-control mb-3"
                 placeholder="Password"
+                name="password"
+                required
               />
               <input
                 type="password"
                 class="form-control mb-3"
                 placeholder="Confirm Password"
+                name="confirmPassword"
+                required
               />
               <button type="submit" class="btn btn-primary w-100 mb-3">
                 Create Account

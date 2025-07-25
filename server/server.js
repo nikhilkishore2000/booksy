@@ -1,5 +1,7 @@
 const express = require("express");
+//env load
 const dotenv = require("dotenv");
+dotenv.config();
 const connectDB = require("./config/db.config");
 const authRoutes = require("./routes/auth.routes");
 const path = require("path");
@@ -7,9 +9,6 @@ const livereload = require("livereload");
 const connectLivereload = require("connect-livereload");
 const session = require("express-session");
 const defaultSession = require("./utils/session");
-
-//env load
-dotenv.config();
 
 const app = express();
 
